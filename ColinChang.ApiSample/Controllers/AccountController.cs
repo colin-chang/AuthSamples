@@ -22,7 +22,7 @@ namespace ColinChang.ApiSample.Controllers
         };
 
         [HttpPost]
-        public IActionResult Post([FromServices] IOptions<JwtOptions> options, [FromBody]User user)
+        public IActionResult Post([FromServices] IOptions<JwtOptions> options, [FromBody]SignInUser user)
         {
             if (user == null)
                 return BadRequest("user cannot be null");

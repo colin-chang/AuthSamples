@@ -5,11 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColinChang.ApiSample.Controllers
 {
+    /// <summary>
+    /// 授权测试控制器
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class HomeController : ControllerBase
     {
+        /// <summary>
+        /// 拒绝匿名用户授权演示
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
+        [HttpGet]
         public string Get() =>
             $"{User.Identity.Name} is authenticated";
 

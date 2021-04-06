@@ -2,10 +2,14 @@ using System.Collections.Generic;
 
 namespace ColinChang.ApiSample.Models
 {
-    public class User
+    public class SignInUser
     {
         public string Username { get; set; }
         public string Password { get; set; }
+    }
+
+    public class User : SignInUser
+    {
         public IEnumerable<Role> Roles { get; set; }
 
         public User()
