@@ -14,4 +14,4 @@ Asp.Net Core 认证授权案例
 * 基于角色授权
 * 基于策略授权
 * 认证中间件/过滤器
-* [相关文档](https://ccstudio.com.cn/dotnet/auth/jwt.html)
+* [相关文档](https://ccstudio.com.cn/dotnet/auth/jwt.html#_3-2-jwt-认证方案)

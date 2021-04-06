@@ -14,10 +14,8 @@ namespace ColinChang.ApiSample
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) =>
             Configuration = configuration;
-        }
 
         public IConfiguration Configuration { get; }
 
@@ -46,7 +44,10 @@ namespace ColinChang.ApiSample
                 builder.AddRequirements(new DenyAnonymousAuthorizationRequirement());
                 builder.AddRequirements(new RolesAuthorizationRequirement(new[] {"Administrator"}));
             }));
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "ColinChang.ApiSample", Version = "v1"}); });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "ColinChang.ApiSample", Version = "v1"});
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

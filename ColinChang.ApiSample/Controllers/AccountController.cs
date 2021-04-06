@@ -35,11 +35,11 @@ namespace ColinChang.ApiSample.Controllers
             var claims = new List<Claim> {new Claim(ClaimTypes.Name, user.Username)};
             claims.AddRange(usr.Roles.Select(role => new Claim(ClaimTypes.Role, role.Name)));
 
-            var jwwOptions = options.Value;
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwwOptions.IssuerSigningKey));
+            var jwtOptions = options.Value;
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.IssuerSigningKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(jwwOptions.ValidIssuer, jwwOptions.ValidAudience, claims, DateTime.Now,
-                DateTime.Now.AddMinutes(jwwOptions.Expires), credentials);
+            var token = new JwtSecurityToken(jwtOptions.ValidIssuer, jwtOptions.ValidAudience, claims, DateTime.Now,
+                DateTime.Now.AddMinutes(jwtOptions.Expires), credentials);
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
             return Ok(jwt);
