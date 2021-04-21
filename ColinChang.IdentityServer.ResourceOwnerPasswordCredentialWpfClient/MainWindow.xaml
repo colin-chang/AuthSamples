@@ -1,0 +1,76 @@
+﻿<Window x:Class="ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient"
+        mc:Ignorable="d"
+        Title="Resource Owner Password Credentials Client" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <GroupBox Header="登录" Padding="15">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="10"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition  Height="10"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center">Username:</TextBlock>
+                    <TextBox x:Name="txtUsername" Grid.Column="1" Height="28" VerticalContentAlignment="Center"></TextBox>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="2">Password:</TextBlock>
+                    <PasswordBox x:Name="txtPassword" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Height="28"/>
+                    <Button x:Name="btnSignin" Grid.Row="4" Grid.Column="1" Height="28" Click="Signin_ButtonClick">SignIn</Button>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Access Token" Grid.Row="2" Padding="5">
+                <TextBox x:Name="txtToken" TextWrapping="Wrap"></TextBox>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Identity data" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"></RowDefinition>
+                        <RowDefinition Height="10"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnIdentity" Click="RequestIdentityData_ButtonClick">Request Identity Data</Button>
+                    <TextBox x:Name="txtIdentityData" Grid.Row="2" TextWrapping="Wrap"></TextBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="API" Padding="5"  Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"></RowDefinition>
+                        <RowDefinition Height="10"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="bntApi" Click="RequestApi_ButtonClick">Request API</Button>
+                    <TextBox x:Name="txtApiResult" Grid.Row="2" TextWrapping="Wrap"></TextBox>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>

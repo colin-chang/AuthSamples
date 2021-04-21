@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace ColinChang.IdentityServer.ClientCredentialConsoleClient
+namespace ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient
 {
     public class IdentityServerOptions
     {

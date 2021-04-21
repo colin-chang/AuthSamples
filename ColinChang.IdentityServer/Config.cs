@@ -4,6 +4,8 @@
 
 using IdentityServer4.Models;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using IdentityServer4;
 
 namespace ColinChang.IdentityServer
 {
@@ -11,7 +13,11 @@ namespace ColinChang.IdentityServer
     {
         //Identity data
         public static IEnumerable<IdentityResource> IdentityResources =>
-            new IdentityResource[] {new IdentityResources.OpenId(),};
+            new IdentityResource[]
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile()
+            };
 
         //APIs
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -24,12 +30,26 @@ namespace ColinChang.IdentityServer
         public static IEnumerable<Client> Clients =>
             new[]
             {
+                // client credential
                 new Client
                 {
                     ClientId = "ClientCredentialConsoleClient",
                     ClientSecrets = {new Secret("ClientCredentialConsoleClient".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {"WeatherApi"}
+                },
+                // resource owner password credential
+                new Client
+                {
+                    ClientId = "ResourceOwnerPasswordCredentialClient",
+                    ClientSecrets = {new Secret("ResourceOwnerPasswordCredentialClient".Sha256())},
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowedScopes =
+                    {
+                        "WeatherApi",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
     }

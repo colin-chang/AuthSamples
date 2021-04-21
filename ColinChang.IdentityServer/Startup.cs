@@ -22,9 +22,10 @@ namespace ColinChang.IdentityServer
             var builder = services.AddIdentityServer(options => options.EmitStaticAudienceClaim = true)
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients);
+                .AddInMemoryClients(Config.Clients)
+                .AddTestUsers(TestUsers.Users);
 
-            if (_env.IsDevelopment())
+            if (_env.IsDevelopment() || _env.IsStaging())
                 builder.AddDeveloperSigningCredential();
             else
                 builder.AddSigningCredential(

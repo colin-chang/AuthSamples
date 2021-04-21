@@ -1,14 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.ApiSample", "ColinChang.ApiSample\ColinChang.ApiSample.csproj", "{5E7CC7CE-0F78-4847-A4BD-01986687896F}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinChang.ApiSample", "ColinChang.ApiSample\ColinChang.ApiSample.csproj", "{5E7CC7CE-0F78-4847-A4BD-01986687896F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.MvcSample", "ColinChang.MvcSample\ColinChang.MvcSample.csproj", "{1C0F246D-8314-453A-BDD1-A1039FF6E7AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinChang.MvcSample", "ColinChang.MvcSample\ColinChang.MvcSample.csproj", "{1C0F246D-8314-453A-BDD1-A1039FF6E7AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.IdentityServer", "ColinChang.IdentityServer\ColinChang.IdentityServer.csproj", "{40974896-5727-4B02-84BD-A0DB86012400}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinChang.IdentityServer", "ColinChang.IdentityServer\ColinChang.IdentityServer.csproj", "{40974896-5727-4B02-84BD-A0DB86012400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.IdentityServer.Api", "ColinChang.IdentityServer.Api\ColinChang.IdentityServer.Api.csproj", "{4D22CDE7-0061-49E7-89F4-033823A5B1E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinChang.IdentityServer.Api", "ColinChang.IdentityServer.Api\ColinChang.IdentityServer.Api.csproj", "{4D22CDE7-0061-49E7-89F4-033823A5B1E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.IdentityServer.ClientCredentialConsoleClient", "ColinChang.IdentityServer.ClientCredentialConsoleClient\ColinChang.IdentityServer.ClientCredentialConsoleClient.csproj", "{4F481783-DD2F-413B-A6A4-B425D8A1BD53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColinChang.IdentityServer.ClientCredentialConsoleClient", "ColinChang.IdentityServer.ClientCredentialConsoleClient\ColinChang.IdentityServer.ClientCredentialConsoleClient.csproj", "{4F481783-DD2F-413B-A6A4-B425D8A1BD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient", "ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient\ColinChang.IdentityServer.ResourceOwnerPasswordCredentialWpfClient.csproj", "{37B60C0E-BD41-4B7D-9404-9591A51607E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +41,15 @@ Global
 		{4F481783-DD2F-413B-A6A4-B425D8A1BD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F481783-DD2F-413B-A6A4-B425D8A1BD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F481783-DD2F-413B-A6A4-B425D8A1BD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B60C0E-BD41-4B7D-9404-9591A51607E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B60C0E-BD41-4B7D-9404-9591A51607E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B60C0E-BD41-4B7D-9404-9591A51607E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B60C0E-BD41-4B7D-9404-9591A51607E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79BA558D-F6F0-43CF-B42B-3BDDEAA60F5B}
 	EndGlobalSection
 EndGlobal
