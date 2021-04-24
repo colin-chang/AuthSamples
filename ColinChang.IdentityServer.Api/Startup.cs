@@ -30,7 +30,10 @@ namespace ColinChang.IdentityServer.Api
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
                     options.Authority = identityServerOptions.Address;
-                    options.TokenValidationParameters = new TokenValidationParameters {ValidateAudience = false};
+                    options.TokenValidationParameters.ValidateAudience = false;
+
+                    options.TokenValidationParameters.RequireExpirationTime = true;
+                    options.TokenValidationParameters.ClockSkew = TimeSpan.FromSeconds(25);
                 });
             services.AddAuthorization(options =>
             {

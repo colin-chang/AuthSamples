@@ -50,7 +50,7 @@ namespace ColinChang.IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
-                }
+                },
             };
     }
 }

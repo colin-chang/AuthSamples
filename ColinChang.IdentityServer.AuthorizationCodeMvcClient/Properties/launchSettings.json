@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "ColinChang.IdentityServer.AuthorizationCodeMvcClient": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

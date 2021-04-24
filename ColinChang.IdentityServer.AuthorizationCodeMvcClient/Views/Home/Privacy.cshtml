@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Identity data";
+}
+<h1>@ViewData["Title"]</h1>
+
+<hr/>
+
+<dl>
+    <dt>@nameof(ViewBag.AccessToken)</dt>
+    <dd style="word-break: break-word">@ViewBag.AccessToken</dd>
+    <dt>@nameof(ViewBag.IdToken)</dt>
+    <dd style="word-break: break-word">@ViewBag.IdToken</dd>
+    <dt>@nameof(ViewBag.RefreshToken)</dt>
+    <dd>@ViewBag.RefreshToken</dd>
+</dl>
