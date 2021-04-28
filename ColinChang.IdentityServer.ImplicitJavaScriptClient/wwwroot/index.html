@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>JavaScript Oidc Client</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mt-5">JavaScript Oidc Client</h1>
+    <hr/>
+
+    <div class="row">
+        <div class="col mt-2 btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-success" id="signIn">SignIn</button>
+            <button type="button" class="btn btn-primary" id="callApi">Call API</button>
+            <button type="button" class="btn btn-danger" id="signOut">SignOut</button>
+            <button type="button" class="btn btn-warning" id="renew">Renew Token</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Logs</h5>
+                    <pre class="card-text" id="log"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Identity data</h5>
+                    <pre class="card-text" id="identityData"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Api</h5>
+                    <pre class="card-text" id="api"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/oidc-client.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

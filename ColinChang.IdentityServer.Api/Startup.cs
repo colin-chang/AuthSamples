@@ -22,6 +22,7 @@ namespace ColinChang.IdentityServer.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
 
             var identityServerOptions =
                 Configuration.GetSection(nameof(IdentityServerOptions)).Get<IdentityServerOptions>();
@@ -91,6 +92,14 @@ namespace ColinChang.IdentityServer.Api
                 app.UseSwaggerUI(c =>
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "ColinChang.IdentityServer.Api v1"));
             }
+
+            app.UseCors(policy =>
+            {
+                policy.WithOrigins("https://localhost:8000");
+                policy.AllowAnyHeader();
+                policy.AllowAnyMethod();
+                policy.WithExposedHeaders("WWW-Authenticate");
+            });
 
             app.UseHttpsRedirection();
             app.UseRouting();

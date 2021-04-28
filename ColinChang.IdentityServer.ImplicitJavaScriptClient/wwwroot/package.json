@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "oidc-client": "^1.11.5"
+  }
+}
