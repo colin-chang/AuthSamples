@@ -4,7 +4,6 @@
 
 using IdentityServer4.Models;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using IdentityServer4;
 
 namespace ColinChang.IdentityServer

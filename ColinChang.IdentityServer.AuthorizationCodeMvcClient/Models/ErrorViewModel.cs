@@ -1,5 +1,3 @@
-using System;
-
 namespace ColinChang.IdentityServer.AuthorizationCodeMvcClient.Models
 {
     public class ErrorViewModel

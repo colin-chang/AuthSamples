@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "ColinChang.IdentityServer.HybridMvcClient": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:9000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

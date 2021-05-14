@@ -41,8 +41,7 @@ namespace ColinChang.IdentityServerWithUI
                     RedirectUris = {"https://localhost:7000/signin-oidc"},
                     FrontChannelLogoutUri = "https://localhost:7000/signout-oidc",
                     PostLogoutRedirectUris = {"https://localhost:7000/signout-callback-oidc"},
-                    AllowOfflineAccess = true,
-                    AccessTokenLifetime = 30
+                    AllowOfflineAccess = true
 
                     // AlwaysIncludeUserClaimsInIdToken = true // 在IdToken中包含所有用户身份声明
                 },
@@ -68,7 +67,26 @@ namespace ColinChang.IdentityServerWithUI
                     AllowedCorsOrigins = {"https://localhost:8000"},
                     RequireConsent = true, //是否需要用户点击同意
                     AccessTokenLifetime = 5 * 60, //Implicit模式下Token有效时间一般设置较短
-                }
+                },
+                new Client
+                {
+                    ClientId = "HybridMvcClient",
+                    ClientSecrets = {new Secret("HybridMvcClient".Sha256())},
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedScopes =
+                    {
+                        "WeatherApi",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    },
+                    
+                    RedirectUris = {"https://localhost:9000/signin-oidc"},
+                    FrontChannelLogoutUri = "https://localhost:9000/signout-oidc",
+                    PostLogoutRedirectUris = {"https://localhost:9000/signout-callback-oidc"},
+                    AllowOfflineAccess = true,
+                    RequirePkce = false,
+                    AlwaysIncludeUserClaimsInIdToken = true // 在IdToken中包含所有用户身份声明
+                },
             };
     }
 }
