@@ -55,9 +55,11 @@ namespace ColinChang.IdentityServer.HybridMvcClient
 
                     options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
+                    // 添加 claims 从忽略列表中移除等同于添加 
                     options.ClaimActions.Remove("nbf");
                     options.ClaimActions.Remove("exp");
 
+                    // 移除 claims
                     options.ClaimActions.DeleteClaim("sid");
                     options.ClaimActions.DeleteClaim("sub");
                 });

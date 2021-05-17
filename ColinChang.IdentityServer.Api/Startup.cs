@@ -1,11 +1,16 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using ColinChang.IdentityServer.Api.Requirements;
+using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -23,6 +28,7 @@ namespace ColinChang.IdentityServer.Api
             services.AddControllers();
             services.AddCors();
 
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             var identityServerOptions =
                 Configuration.GetSection(nameof(IdentityServerOptions)).Get<IdentityServerOptions>();
             services
@@ -30,10 +36,15 @@ namespace ColinChang.IdentityServer.Api
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
                     options.Authority = identityServerOptions.Address;
-                    options.TokenValidationParameters.ValidateAudience = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false,
+                        RequireExpirationTime = true,
+                        ClockSkew = TimeSpan.FromSeconds(25),
 
-                    options.TokenValidationParameters.RequireExpirationTime = true;
-                    options.TokenValidationParameters.ClockSkew = TimeSpan.FromSeconds(25);
+                        NameClaimType = JwtClaimTypes.Name,
+                        RoleClaimType = JwtClaimTypes.Role
+                    };
                 });
             services.AddAuthorization(options =>
             {
@@ -43,7 +54,17 @@ namespace ColinChang.IdentityServer.Api
                         policy.RequireAuthenticatedUser();
                         policy.RequireClaim("scope", scope);
                     });
+
+                options.AddPolicy("ChineseAdministrator", policy =>
+                {
+                    // policy.RequireAuthenticatedUser();
+                    // policy.RequireClaim("nationality", "China");
+                    // policy.RequireRole("Administrator");
+
+                    policy.AddRequirements(new ChineseAdministratorRequirement());
+                });
             });
+            services.AddSingleton<IAuthorizationRequirement, ChineseAdministratorRequirement>();
 
             services.AddSwaggerGen(c =>
             {
