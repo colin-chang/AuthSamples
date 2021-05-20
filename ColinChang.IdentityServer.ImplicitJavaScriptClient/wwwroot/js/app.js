@@ -7,7 +7,7 @@
         silent_redirect_uri: window.location.origin + "/silent-oidc.html",
         automaticSilentRenew: true,
         response_type: "id_token token",
-        scope: "WeatherApi openid profile roles nationalities",
+        scope: "WeatherApi openid profile email roles nationalities",
         revokeAccessTokenOnSignout: true,
     });
 

@@ -16,6 +16,7 @@ namespace ColinChang.IdentityServerWithUI
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email(),
                 new IdentityResource("roles", "角色", new[] {JwtClaimTypes.Role}),
                 new IdentityResource("nationalities", "国籍", new[] {"nationality"}),
             };
@@ -23,7 +24,7 @@ namespace ColinChang.IdentityServerWithUI
         public static IEnumerable<ApiScope> ApiScopes =>
             new[]
             {
-                new ApiScope("WeatherApi", "天气预报", new[] {JwtClaimTypes.Role,"nationality"})
+                new ApiScope("WeatherApi", "天气预报", new[] {JwtClaimTypes.Role, "nationality"})
             };
 
         public static IEnumerable<Client> Clients =>
@@ -58,6 +59,7 @@ namespace ColinChang.IdentityServerWithUI
                         "WeatherApi",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
                         "roles",
                         "nationalities"
                     },

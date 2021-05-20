@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,17 +37,17 @@ namespace ColinChang.IdentityServerWithUI
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
-            // services.AddAuthentication()
-            //     .AddGoogle(options =>
-            //     {
-            //         options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-            //
-            //         // register your IdentityServer with Google at https://console.developers.google.com
-            //         // enable the Google+ API
-            //         // set the redirect URI to https://localhost:5001/signin-google
-            //         options.ClientId = "copy client ID from Google here";
-            //         options.ClientSecret = "copy client secret from Google here";
-            //     });
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                    // register your IdentityServer with Google at https://console.developers.google.com
+                    // enable the Google+ API
+                    // set the redirect URI to https://localhost:5000/signin-google
+                    options.ClientId = "778213714307-cjpuh2td8uml33lke0n818t7ft37kfvb.apps.googleusercontent.com";
+                    options.ClientSecret = "Eiv41aO7KHdq2BNSpXx5Vkzr";
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment environment)
