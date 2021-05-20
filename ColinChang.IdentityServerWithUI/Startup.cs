@@ -47,6 +47,13 @@ namespace ColinChang.IdentityServerWithUI
                     // set the redirect URI to https://localhost:5000/signin-google
                     options.ClientId = "778213714307-cjpuh2td8uml33lke0n818t7ft37kfvb.apps.googleusercontent.com";
                     options.ClientSecret = "Eiv41aO7KHdq2BNSpXx5Vkzr";
+                })
+                .AddGitHub(options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    options.ClientId = "8ab4ff5ebf3b524131ed";
+                    options.ClientSecret = "dc0ccab5a8838916e2d53a19d35556c21f58ee4e";
+                    options.Scope.Add("user:email");
                 });
         }
 
