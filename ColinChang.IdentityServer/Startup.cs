@@ -19,18 +19,19 @@ namespace ColinChang.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var builder = services.AddIdentityServer(options => options.EmitStaticAudienceClaim = true)
+            var builder = services
+                .AddIdentityServer(options => options.EmitStaticAudienceClaim = true)
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddTestUsers(TestUsers.Users);
 
-            if (_env.IsDevelopment() || _env.IsStaging())
-                builder.AddDeveloperSigningCredential();
-            else
+            if (_env.IsProduction())
                 builder.AddSigningCredential(
                     new X509Certificate2(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "is4.pfx"),
                         "5C6CE27CBA3DD15B4EFBE5A7EC679CBBE79D14F5"));
+            else
+                builder.AddDeveloperSigningCredential();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment environment)
